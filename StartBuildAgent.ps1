@@ -1,10 +1,14 @@
-param ([string] $azureDevOpsTeam, [string] $azureDevOpsPat, [string] $azureDevOpsAgentPool, [string] $dockerImageName, [string] $dockerRegistry, [string] $dockerTag)
-if ([string]::IsNullOrEmpty($azureDevOpsTeam) -or 
-    [string]::IsNullOrEmpty($azureDevOpsAgentPool) -or
-    [string]::IsNullOrEmpty($dockerImageName) -or
-    [string]::IsNullOrEmpty($dockerTag)) {
-        return "Please provide all the required parameters."
-}
+param (
+    [Parameter(Mandatory=$true)]
+    [string] $azureDevOpsTeam, 
+    [Parameter(Mandatory=$true)]
+    [string] $azureDevOpsPat, 
+    [Parameter(Mandatory=$true)]
+    [string] $azureDevOpsAgentPool,
+    [string] $dockerImageName = "win",
+    [string] $dockerRegistry, 
+    [string] $dockerTag = "latest"
+    )
 
 # $dockerImageName = "win"
 # $dockerRegistry = ""
